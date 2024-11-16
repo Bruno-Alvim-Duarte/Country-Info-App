@@ -13,16 +13,22 @@ const CountryPage = () => {
     </div>
   ) : (
     <div className="flex flex-col items-center gap-4 p-[2%]">
-      <Image src={countryData.flagImage} alt="flag" width={100} height={100} />
-      <div className="text-center">
-        <div className="text-xl">{countryData.countryName}</div>
-        <div className="text-sm italic">{countryData.countryCode}</div>
+      <div className="flex flex-col items-center bg-slate-700 rounded p-5">
+        <Image src={countryData.flagImage} alt="flag" width={100} height={100} />
+        <div className="text-center">
+          <div className="text-xl">{countryData.countryName}</div>
+          <div className="text-sm italic">{countryData.countryCode}</div>
+        </div>
       </div>
-      {countryData.borderCountries.length > 0 && (
+      {countryData.borderCountries.length > 0 ? (
         <BorderCountries
           borderCountries={countryData.borderCountries}
           countryName={countryData.countryName}
         />
+      ) : (
+        <div className="flex flex-col items-center bg-slate-700 rounded p-5">
+          <div className="text-xl">No border countries found</div>
+        </div>
       )}
       <PopulationChart populationData={countryData.populationData} />
     </div>

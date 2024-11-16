@@ -52,7 +52,8 @@ const PopulationChart = ({ populationData }: any) => {
   };
 
   return (
-    <div className="mixed-chart">
+    <div className="mixed-chart flex flex-col items-center bg-slate-700 rounded p-5">
+      <div className="text-xl">Population quantity over the years</div>
       <Chart
         options={options}
         series={options.series}
