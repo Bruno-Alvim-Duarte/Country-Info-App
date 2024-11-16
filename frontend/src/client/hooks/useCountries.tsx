@@ -1,34 +1,35 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import ICountry from "@/interfaces/ICountry";
-import axios from "axios";
-import api from "../services/api";
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import ICountry from '@/interfaces/ICountry';
+import api from '../services/api';
 
 const useCountries = () => {
-    const [countries, setCountries] = useState<ICountry[]>([]);
-    const [loading, setLoading] = useState(true);
+  const [countries, setCountries] = useState<ICountry[]>([]);
+  const [loading, setLoading] = useState(true);
 
-    const fetchCountries = useCallback(async() => {
-        try {
-            const response = await api.get('/countries');
-            console.log('response', response)
-            setCountries(response.data);
-        } catch (e) {
-            console.error("erro ao buscar os países", e)
-        } finally {
-            setLoading(false);
-        }
-    }, [])
+  const fetchCountries = useCallback(async () => {
+    try {
+      const response = await api.get('/countries');
+      setCountries(response.data);
+    } catch (e) {
+      console.error('erro ao buscar os países', e);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
-    useEffect(() => {
-        fetchCountries();
-    }, [fetchCountries]);
+  useEffect(() => {
+    fetchCountries();
+  }, [fetchCountries]);
 
-    const data = useMemo(() => ({
-        countries,
-        loading
-    }), [countries, loading]);
+  const data = useMemo(
+    () => ({
+      countries,
+      loading,
+    }),
+    [countries, loading]
+  );
 
-    return data;
-}
+  return data;
+};
 
 export default useCountries;
