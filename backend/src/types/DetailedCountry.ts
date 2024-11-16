@@ -2,6 +2,8 @@ export interface DetailedCountry {
     borderCountries: Border[];
     populationData: PopulationData[];
     flagImage: string;
+    countryName: string;
+    countryCode: string;
 }
 
 export type Border = {

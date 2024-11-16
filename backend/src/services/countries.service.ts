@@ -29,7 +29,9 @@ export const show = async (countryCode: string): Promise<DetailedCountry> => {
         return {
             borderCountries: borderCountries.data.borders,
             populationData: populationData.data.data.populationCounts,
-            flagImage: flagImage.data.data.flag
+            flagImage: flagImage.data.data.flag,
+            countryName: borderCountries.data.commonName,
+            countryCode: countryCode
         }
     } catch (error: any) {
         console.error(error);
