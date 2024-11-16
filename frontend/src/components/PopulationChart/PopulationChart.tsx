@@ -51,8 +51,6 @@ const PopulationChart = ({ populationData }: any) => {
     },
   };
 
-  console.log(populationData);
-
   return (
     <div className="mixed-chart">
       <Chart

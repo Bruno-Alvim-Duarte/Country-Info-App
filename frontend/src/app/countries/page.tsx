@@ -13,7 +13,7 @@ const CountriesPage = () => {
     </div>
   ) : (
     <div className="p-6 flex flex-col items-center gap-5">
-      <div className="text 2xl font-bold">Countries List</div>
+      <div className="text text-3xl font-bold">Countries List</div>
       <div className="flex flex-wrap max-w-[80%] gap-3">
         {countries.map((country: ICountry) => (
           <Country

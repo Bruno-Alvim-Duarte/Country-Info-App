@@ -24,7 +24,6 @@ const useCountry = () => {
         try {
           const countryData = await api.get(`/countries/${selectedCountry}`);
           setSelectedCountryData(countryData.data);
-          console.log('countryData', countryData);
         } catch (e) {
           console.error('error during fetch the country', e);
         } finally {

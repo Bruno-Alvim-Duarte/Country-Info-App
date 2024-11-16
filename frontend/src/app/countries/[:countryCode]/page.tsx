@@ -1,6 +1,6 @@
 'use client';
 import useCountry from '@/client/hooks/useCountry';
-import Country from '@/components/Country/Country';
+import BorderCountries from '@/components/BorderCountries/BorderCountries';
 import PopulationChart from '@/components/PopulationChart/PopulationChart';
 import Image from 'next/image';
 import { FaSpinner } from 'react-icons/fa6';
@@ -18,24 +18,12 @@ const CountryPage = () => {
         <div className="text-xl">{countryData.countryName}</div>
         <div className="text-sm italic">{countryData.countryCode}</div>
       </div>
-      <div className="text-center">
-        <div className="text-xl">
-          Countries that border
-          {countryData.countryName}
-        </div>
-        <div className="text-sm italic">
-          OBS: you can click on each country to see detailed infos
-        </div>
-      </div>
-      <ul>
-        {countryData.borderCountries.map((borderCountry: any) => (
-          <Country
-            key={borderCountry.countryCode}
-            countryName={borderCountry.commonName}
-            countryCode={borderCountry.countryCode}
-          />
-        ))}
-      </ul>
+      {countryData.borderCountries.length > 0 && (
+        <BorderCountries
+          borderCountries={countryData.borderCountries}
+          countryName={countryData.countryName}
+        />
+      )}
       <PopulationChart populationData={countryData.populationData} />
     </div>
   );
