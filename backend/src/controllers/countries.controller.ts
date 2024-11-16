@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import * as countriesService from '../services/countries.service';
 
 export const index = async (_req: Request, res: Response): Promise<void> => {
+    console.log('CHEOGUUU AQUI')
     try {
         const countries = await countriesService.index();
         res.status(200).json(countries);
