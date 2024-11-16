@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import ICountry from "@/interfaces/ICountry";
 import axios from "axios";
+import api from "../services/api";
 
 const useCountries = () => {
     const [countries, setCountries] = useState<ICountry[]>([]);
@@ -8,7 +9,7 @@ const useCountries = () => {
 
     const fetchCountries = useCallback(async() => {
         try {
-            const response = await axios.get('http://localhost:3001/countries');
+            const response = await api.get('/countries');
             console.log('response', response)
             setCountries(response.data);
         } catch (e) {

@@ -11,8 +11,8 @@
                 <div>Loading...</div>
             </div>
         ) : (
-            <div>
-                <div>Countries List</div>
+            <div className="p-6">
+                <div className="text 2xl font-bold">Countries List</div>
                     {countries.map((country: ICountry) => (
                         <Country key={country.countryCode} countryName={country.name} countryCode={country.countryCode} />
                     ))} 
