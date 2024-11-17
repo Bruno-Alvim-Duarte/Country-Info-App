@@ -20,7 +20,7 @@ const PopulationChart = ({ populationData }: any) => {
       labels: {
         style: {
           colors: '#ededed',
-          fontSize: '12px',
+          fontSize: '10px',
           fontWeight: 600,
         },
       },
