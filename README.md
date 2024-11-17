@@ -1,5 +1,8 @@
 # Project Setup and Execution
 
+## Application deploy URL
+https://country-info-app-x6g1.vercel.app/
+
 ## Environment Variables
 
 ### Frontend
